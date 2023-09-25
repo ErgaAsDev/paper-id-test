@@ -10,3 +10,21 @@ body {
 ::after {
   border-width: 0;
 }
+
+.fade-entering {
+  opacity: 0;
+  transform: translateY(
+    -10px
+  ); /* Optional: Add a slight vertical translation for a smoother effect */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-entered {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ant-modal-close {
+  display: none;
+}

@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const RegistrationFormFive: FunctionComponent = () => {
   return (
-    <div className="w-[572px] flex flex-row items-start justify-start text-left text-sm text-text-text-primary font-caption-2">
+    <div className="flex flex-row items-start justify-start text-left text-sm text-text-text-primary font-caption-2">
       <div className="flex-1 rounded-3xs [background:linear-gradient(110.88deg,_rgba(255,_255,_255,_0.62),_rgba(255,_255,_255,_0))] [backdrop-filter:blur(24px)] flex flex-col items-start justify-start p-4">
         <div className="self-stretch rounded-3xs bg-white100 flex flex-col items-center justify-start py-[30px] px-6 relative gap-[24px]">
           <div className="self-stretch flex flex-col items-center justify-center z-[0] text-center text-lg">
@@ -12,7 +12,7 @@ const RegistrationFormFive: FunctionComponent = () => {
           </div>
           <div className="self-stretch flex flex-row items-center justify-start z-[1] text-text-text-green-light">
             <div className="flex-1 flex flex-col items-start justify-start">
-              <div className="self-stretch rounded-8xs flex flex-row flex-wrap items-center justify-center py-2 px-4 gap-[4px]">
+              <div className="self-stretch rounded-8xs flex flex-row items-center justify-center py-2 px-4 gap-[4px]">
                 <div className="flex flex-row items-center justify-start gap-[10px]">
                   <img className="relative w-14 h-14" alt="" src="/icon1.svg" />
                   <b className="relative leading-[150%]">Isi Form</b>

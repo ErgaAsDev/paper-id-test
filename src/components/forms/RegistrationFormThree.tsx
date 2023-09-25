@@ -1,8 +1,19 @@
 import { FunctionComponent } from "react";
+import { useDispatch } from "react-redux";
+import { openForm, setOpacityTransition } from "../../slices/appSlice";
 
 const RegistrationFormThree: FunctionComponent = () => {
+  const dispatch = useDispatch();
+  const handleOpenForm = (formName: any) => {
+    dispatch(openForm(formName)); // Dispatch the action to open the form
+
+    // Add a short delay before setting opacity to 1 to trigger the transition
+    setTimeout(() => {
+      dispatch(setOpacityTransition(true));
+    }, 300); // Adjust the delay as needed
+  };
   return (
-    <div className="w-[572px] flex flex-row items-start justify-start text-left text-xs text-text-text-primary font-caption-2">
+    <div className="flex flex-row items-start justify-start text-left text-xs text-text-text-primary font-caption-2">
       <div className="flex-1 rounded-3xs [background:linear-gradient(110.88deg,_rgba(255,_255,_255,_0.62),_rgba(255,_255,_255,_0))] [backdrop-filter:blur(24px)] flex flex-col items-start justify-start p-4">
         <div className="self-stretch rounded-3xs bg-white100 flex flex-col items-center justify-start py-[30px] px-6 relative gap-[18px]">
           <div className="self-stretch flex flex-row items-center justify-start z-[0] text-sm text-gainsboro">
@@ -320,7 +331,10 @@ const RegistrationFormThree: FunctionComponent = () => {
               alt=""
               src="/csillustration-1.svg"
             />
-            <button className="cursor-pointer [border:none] py-2.5 px-6 bg-green50 self-stretch rounded-81xl flex flex-row items-center justify-center">
+            <button
+              onClick={() => handleOpenForm("four")}
+              className="cursor-pointer [border:none] py-2.5 px-6 bg-green50 self-stretch rounded-81xl flex flex-row items-center justify-center"
+            >
               <div className="relative text-sm leading-[19px] font-caption-2 text-white100 text-left">
                 Ya, Saya Mengerti
               </div>

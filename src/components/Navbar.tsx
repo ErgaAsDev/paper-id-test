@@ -12,7 +12,7 @@ const Navbar: FunctionComponent = () => {
         <div className="hidden flex-row items-center justify-end lg:flex sm:hidden">
           <b className="relative">{`SERVICES `}</b>
         </div>
-        <div className="flex-1 flex flex-row items-start justify-start gap-[32px] lg:hidden">
+        <div className="font-lato flex flex-row items-start justify-start gap-[32px] lg:hidden">
           <b className="relative">PRODUK</b>
           <b className="relative">SOLUSI BISNIS</b>
           <b className="relative">CARA KERJA</b>

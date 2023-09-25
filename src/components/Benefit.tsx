@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Benefit: FunctionComponent = () => {
   return (
-    <div className="self-stretch bg-white100 flex flex-col items-center justify-start pt-24 px-0 pb-[164px] gap-[48px] text-center text-29xl text-text-text-primary font-heading-heading-large">
+    <div className="self-stretch font-lato bg-white100 flex flex-col items-center justify-start pt-24 px-0 pb-[164px] gap-[48px] text-center text-29xl text-text-text-primary font-heading-heading-large">
       <div className="self-stretch flex flex-row items-start justify-center py-2.5 px-0">
         <b className="flex-1 relative leading-[82px]">
           Manfaat yang Bisa Anda Rasakan

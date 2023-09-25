@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 const Footer: FunctionComponent = () => {
   return (
-    <div className="self-stretch [background:linear-gradient(125.5deg,_#257ab4,_#113955_99.48%,_#113955_99.49%)] flex flex-col items-center justify-start py-[46px] px-[146px] gap-[75px] text-left text-18xl text-white100 font-heading-heading-large">
+    <div className="self-stretch font-lato [background:linear-gradient(125.5deg,_#257ab4,_#113955_99.48%,_#113955_99.49%)] flex flex-col items-center justify-start py-[46px] px-[146px] gap-[75px] text-left text-18xl text-white100 font-heading-heading-large">
       <div className="self-stretch flex flex-row flex-wrap items-center justify-center gap-[88px]">
         <div className="relative w-[314px] h-[313px] sm:hidden">
           <img
@@ -24,11 +24,7 @@ const Footer: FunctionComponent = () => {
         </div>
       </div>
       <div className="self-stretch flex flex-col items-start justify-start gap-[21px] text-sm">
-        <img
-          className="self-stretch relative max-w-full overflow-hidden h-px shrink-0"
-          alt=""
-          src="/vector-9.svg"
-        />
+        <div className="self-stretch border-t border-solid border-white"></div>
         <div className="self-stretch flex flex-row items-start justify-between lg:flex-col lg:gap-[40px] lg:items-center lg:justify-center">
           <div className="w-[470px] flex flex-col items-start justify-start py-0 px-3.5 box-border">
             <div className="self-stretch flex flex-col items-start justify-start gap-[15px]">
@@ -188,11 +184,7 @@ const Footer: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <img
-          className="self-stretch relative max-w-full overflow-hidden h-px shrink-0"
-          alt=""
-          src="/vector-9.svg"
-        />
+        <div className="self-stretch border-t border-solid border-white"></div>
         <div className="self-stretch flex flex-row items-start justify-center gap-[28px]">
           <div />
           <div className="flex flex-row items-start justify-start gap-[28px]">
@@ -228,11 +220,7 @@ const Footer: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <img
-          className="self-stretch relative max-w-full overflow-hidden h-px shrink-0"
-          alt=""
-          src="/vector-9.svg"
-        />
+        <div className="self-stretch border-t border-solid border-white"></div>
         <div className="self-stretch flex flex-row flex-wrap items-start justify-between text-gray sm:gap-[20px]">
           <b className="relative leading-[150%]">
             Copyright © 2023 Paper.id (PT Pakar Digital Global)

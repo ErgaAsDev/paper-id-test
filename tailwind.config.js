@@ -25,8 +25,8 @@ module.exports = {
         "grey-45": "#d6dbe0",
         gainsboro: "#d4dade",
         whitesmoke: {
-          "100": "#f8f9fa",
-          "200": "#eceff1",
+          100: "#f8f9fa",
+          200: "#eceff1",
         },
         "shades-of-blue-blue-low": "#e8f3fa",
         "darkgrey-50": "#3c5467",
@@ -37,7 +37,7 @@ module.exports = {
       },
       spacing: {},
       fontFamily: {
-        "caption-2": "Lato",
+        lato: ["Lato", "sans"],
       },
       borderRadius: {
         "3xs": "10px",
@@ -67,7 +67,7 @@ module.exports = {
     },
     screens: {
       lg: {
-        max: "1100px",
+        max: "1350px",
       },
       sm: {
         max: "600px",

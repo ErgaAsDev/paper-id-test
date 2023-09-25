@@ -1,10 +1,39 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { openForm } from "../../slices/appSlice";
+import { RootState } from "../../store";
 
 const RegistrationFormTwo: FunctionComponent = () => {
+  const { isFormOpen } = useSelector((state: RootState) => state.app);
+  const dispatch = useDispatch();
+
+  const [formValues, setFormValues] = useState({
+    nama: "",
+    alamat: "",
+    tanggalLahir: "",
+    nomorTelponPribadi: 123142,
+    nomorTelponPerusahaan: 123142,
+    ktp: 123,
+    npwp: 123,
+    jumlahPinjaman: 5000000,
+    namaPerusahaan: "",
+    alamatPerusahaan: "",
+  });
+
+  const onChangeHandler = (event: any) => {
+    const { name, value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+
+  const isFormValid = Object.values(formValues).every((value) => !!value);
+
   return (
-    <div className="w-[572px] flex flex-row items-start justify-start text-left text-xs text-text-text-primary font-caption-2">
-      <div className="flex-1 rounded-3xs [background:linear-gradient(110.88deg,_rgba(255,_255,_255,_0.62),_rgba(255,_255,_255,_0))] [backdrop-filter:blur(24px)] flex flex-col items-start justify-start p-4">
-        <div className="self-stretch rounded-3xs bg-white100 flex flex-col items-center justify-start py-[30px] px-6 relative gap-[18px]">
+    <div className="flex  flex-row items-start justify-start text-left text-xs text-text-text-primary">
+      <div className="rounded-3xs px-4 [background:linear-gradient(110.88deg,_rgba(255,_255,_255,_0.62),_rgba(255,_255,_255,_0))] [backdrop-filter:blur(24px)] flex flex-col items-start justify-start p-4">
+        <div className="self-stretch rounded-3xs bg-white100 flex flex-col items-center justify-start py-[30px] px-8 relative gap-[18px]">
           <div className="self-stretch flex flex-row flex-wrap items-center justify-start z-[0] text-sm text-gainsboro">
             <div className="flex-1 flex flex-col items-start justify-start">
               <div className="self-stretch rounded-8xs flex flex-row items-center justify-center py-2 px-4 gap-[16px]">
@@ -61,9 +90,12 @@ const RegistrationFormTwo: FunctionComponent = () => {
           <div className="self-stretch flex flex-col items-start justify-center gap-[5px] z-[2]">
             <b className="self-stretch relative leading-[150%]">Nama Lengkap</b>
             <input
+              value={formValues.nama}
               className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
               placeholder="cth. Priska Aprilia"
               type="text"
+              name="nama"
+              onChange={onChangeHandler}
             />
           </div>
           <div className="self-stretch flex flex-col items-start justify-center gap-[5px] z-[3]">
@@ -71,9 +103,12 @@ const RegistrationFormTwo: FunctionComponent = () => {
               Alamat Lengkap
             </b>
             <input
+              value={formValues.alamat}
               className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
               placeholder="cth. Jl. Sunter Garden Raya No.5D, RT.6/RW.12"
               type="text"
+              name="alamat"
+              onChange={onChangeHandler}
             />
           </div>
           <div className="self-stretch flex flex-row flex-wrap items-start justify-start gap-[16px] z-[4]">
@@ -82,17 +117,23 @@ const RegistrationFormTwo: FunctionComponent = () => {
                 Tanggal Lahir
               </b>
               <input
+                value={formValues.tanggalLahir}
                 className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
                 placeholder="DD/MM/YYYY"
                 type="text"
+                name="tanggalLahir"
+                onChange={onChangeHandler}
               />
             </div>
             <div className="flex-1 flex flex-col items-start justify-center gap-[5px]">
               <b className="self-stretch relative leading-[150%]">No. Telp</b>
               <input
+                value={formValues.nomorTelponPribadi}
                 className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
                 placeholder="cth. 08123456789"
                 type="number"
+                name="nomorTelponPribadi"
+                onChange={onChangeHandler}
               />
             </div>
             <div className="flex-1 flex flex-col items-start justify-center gap-[5px]">
@@ -100,9 +141,12 @@ const RegistrationFormTwo: FunctionComponent = () => {
                 No. Telp Perusahaan
               </b>
               <input
+                value={formValues.nomorTelponPerusahaan}
                 className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
                 placeholder="cth. 021998997"
                 type="number"
+                name="nomorTelponPerusahaan"
+                onChange={onChangeHandler}
               />
             </div>
           </div>
@@ -110,17 +154,23 @@ const RegistrationFormTwo: FunctionComponent = () => {
             <div className="flex-1 flex flex-col items-start justify-center gap-[5px]">
               <b className="self-stretch relative leading-[150%]">No. KTP</b>
               <input
+                value={formValues.ktp}
                 className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
                 placeholder="cth. 327123456789"
                 type="number"
+                name="ktp"
+                onChange={onChangeHandler}
               />
             </div>
             <div className="flex-1 flex flex-col items-start justify-center gap-[5px]">
               <b className="self-stretch relative leading-[150%]">No. NPWP</b>
               <input
+                value={formValues.npwp}
                 className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
                 placeholder="cth. 990998997996"
                 type="number"
+                name="npwp"
+                onChange={onChangeHandler}
               />
             </div>
             <div className="flex-1 flex flex-col items-start justify-center gap-[5px]">
@@ -128,9 +178,12 @@ const RegistrationFormTwo: FunctionComponent = () => {
                 Jumlah Pinjaman
               </b>
               <input
+                value={formValues.jumlahPinjaman}
                 className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
                 placeholder="Rp 0"
                 type="number"
+                name="jumlahPinjaman"
+                onChange={onChangeHandler}
               />
             </div>
           </div>
@@ -139,9 +192,12 @@ const RegistrationFormTwo: FunctionComponent = () => {
               Nama Perusahaan
             </b>
             <input
+              value={formValues.namaPerusahaan}
               className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
               placeholder="cth. PT Pembangunan Sejahtera"
               type="text"
+              name="namaPerusahaan"
+              onChange={onChangeHandler}
             />
           </div>
           <div className="self-stretch flex flex-col items-start justify-center gap-[5px] z-[7]">
@@ -149,9 +205,12 @@ const RegistrationFormTwo: FunctionComponent = () => {
               Alamat Perusahaan
             </b>
             <input
+              value={formValues.alamatPerusahaan}
               className="[border:none] font-caption-2 text-sm bg-[transparent] self-stretch flex flex-col items-center justify-center"
               placeholder="cth. Jl Otto Iskandardinata 30, DKI Jakarta"
               type="text"
+              name="alamatPerusahaan"
+              onChange={onChangeHandler}
             />
           </div>
           <div className="self-stretch flex flex-col items-start justify-start z-[8] text-base">
@@ -208,18 +267,20 @@ const RegistrationFormTwo: FunctionComponent = () => {
             </div>
           </div>
           <button
-            className="[border:none] py-3 px-5 bg-grey30 rounded-81xl w-[214px] flex flex-row items-center justify-center box-border z-[10]"
-            disabled={true}
+            className={`[border:none] py-3 px-5 ${
+              isFormValid ? "bg-blue-500 cursor-pointer" : "bg-grey30"
+            }  rounded-81xl w-[214px] flex flex-row items-center justify-center box-border z-[10]`}
+            disabled={!isFormValid}
+            onClick={() => dispatch(openForm("three"))}
           >
-            <b className="relative text-base leading-[135%] font-caption-2 text-darkgrey30 text-left">
+            <b
+              className={`relative text-base leading-[135%] font-caption-2 ${
+                isFormValid ? "text-white" : "text-darkgrey30"
+              }  text-left`}
+            >
               Simpan
             </b>
           </button>
-          <img
-            className="absolute my-0 mx-[!important] bottom-[-27px] left-[calc(50%_-_80px)] w-40 h-40 overflow-hidden shrink-0 opacity-[0] z-[11]"
-            alt=""
-            src="/pulse-effect.svg"
-          />
         </div>
       </div>
     </div>

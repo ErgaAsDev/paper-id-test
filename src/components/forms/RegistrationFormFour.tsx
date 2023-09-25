@@ -1,8 +1,27 @@
 import { FunctionComponent } from "react";
+import { useState } from "react";
+import { openForm } from "../../slices/appSlice";
+import { useDispatch } from "react-redux";
 
 const RegistrationFormFour: FunctionComponent = () => {
+  const dispatch = useDispatch();
+  const [checkboxes, setCheckboxes] = useState({
+    checkbox1: false,
+    checkbox2: false,
+  });
+
+  // Function to handle checkbox change
+  const handleCheckboxChange = (event: any) => {
+    const { name, checked } = event.target;
+    setCheckboxes({
+      ...checkboxes,
+      [name]: checked,
+    });
+  };
+
+  const isCheckboxChecked = checkboxes.checkbox1 || checkboxes.checkbox2;
   return (
-    <div className="w-[572px] flex flex-row items-start justify-start text-left text-sm text-text-text-secondary font-caption-2">
+    <div className="flex flex-row items-start justify-start text-left text-sm text-text-text-secondary font-caption-2">
       <div className="flex-1 rounded-3xs [background:linear-gradient(110.88deg,_rgba(255,_255,_255,_0.62),_rgba(255,_255,_255,_0))] [backdrop-filter:blur(24px)] flex flex-col items-start justify-start p-4">
         <div className="self-stretch rounded-3xs bg-white100 flex flex-col items-center justify-start py-[30px] px-6 relative gap-[18px]">
           <div className="self-stretch flex flex-row items-center justify-start z-[0] text-text-text-green-light">
@@ -69,7 +88,13 @@ const RegistrationFormFour: FunctionComponent = () => {
           <div className="self-stretch rounded-lg bg-white100 shadow-[0px_0px_8px_rgba(61,_149,_210,_0.1)] flex flex-col items-start justify-start p-2.5 z-[4] border-[1px] border-solid border-artboard-border">
             <div className="self-stretch flex flex-col items-start justify-center p-2.5 gap-[16px]">
               <div className="flex flex-row items-center justify-start gap-[8px]">
-                <input className="relative w-6 h-6" type="checkbox" />
+                <input
+                  className="relative w-6 h-6"
+                  type="checkbox"
+                  name="checkbox1"
+                  checked={checkboxes.checkbox1}
+                  onChange={handleCheckboxChange}
+                />
                 <img
                   className="relative w-[154px] h-6 object-cover"
                   alt=""
@@ -96,7 +121,13 @@ const RegistrationFormFour: FunctionComponent = () => {
           <div className="self-stretch rounded-lg bg-white100 shadow-[0px_0px_8px_rgba(61,_149,_210,_0.1)] flex flex-col items-start justify-start p-2.5 z-[5] border-[1px] border-solid border-artboard-border">
             <div className="self-stretch flex flex-col items-start justify-center p-2.5 gap-[16px]">
               <div className="flex flex-row items-end justify-start gap-[12px]">
-                <input className="relative w-6 h-6" type="checkbox" />
+                <input
+                  className="relative w-6 h-6"
+                  type="checkbox"
+                  name="checkbox2"
+                  checked={checkboxes.checkbox2}
+                  onChange={handleCheckboxChange}
+                />
                 <img
                   className="relative w-[86px] h-6 object-cover"
                   alt=""
@@ -121,10 +152,17 @@ const RegistrationFormFour: FunctionComponent = () => {
             </div>
           </div>
           <button
-            className="[border:none] py-3 px-5 bg-grey30 rounded-81xl w-[214px] flex flex-row items-center justify-center box-border z-[6]"
-            disabled={true}
+            className={`[border:none] py-3 px-5 ${
+              isCheckboxChecked ? "bg-blue-500 cursor-pointer" : "bg-grey30"
+            }  rounded-81xl w-[214px] flex flex-row items-center justify-center box-border z-[6]`}
+            disabled={!isCheckboxChecked}
+            onClick={() => dispatch(openForm("five"))}
           >
-            <b className="relative text-base leading-[135%] font-caption-2 text-darkgrey30 text-left">
+            <b
+              className={`relative text-base leading-[135%] font-caption-2 ${
+                isCheckboxChecked ? "text-white" : "text-darkgrey30"
+              }  text-left`}
+            >
               Simpan
             </b>
           </button>

@@ -1,8 +1,30 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
+import { Modal } from "antd";
+import PaymentModal from "./PaymentCheckout";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
+import ModalsApprovement from "./ModalApprovement";
+import ModalInterest from "./ModalInterest";
 
 const Checkout: FunctionComponent = () => {
+  const { checkoutLoading, isCheckoutApprove } = useSelector(
+    (state: RootState) => state.app
+  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
-    <div className="self-stretch bg-blue10 flex flex-col items-center justify-center py-24 px-[147px] text-left text-21xl text-text-text-primary font-heading-heading-large">
+    <div className="self-stretch font-lato bg-blue10 flex flex-col items-center justify-center py-24 px-[147px] text-left text-21xl text-text-text-primary font-heading-heading-large">
       <div className="self-stretch flex flex-row flex-wrap items-center justify-center gap-[160px] sm:gap-[100px]">
         <b className="relative leading-[150%] inline-block w-[591px] shrink-0 sm:flex-1">
           Lihat Simulasi Penggunaan Limit yang Diberikan!
@@ -125,7 +147,10 @@ const Checkout: FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-                <button className="cursor-pointer [border:none] py-[9px] px-[15px] bg-green50 self-stretch rounded-81xl flex flex-row items-center justify-center">
+                <button
+                  onClick={showModal}
+                  className="cursor-pointer [border:none] py-[9px] px-[15px] bg-green50 self-stretch rounded-81xl flex flex-row items-center justify-center"
+                >
                   <b className="relative text-xl leading-[135%] font-heading-heading-large text-white100 text-left">
                     Bayar Sekarang
                   </b>
@@ -133,12 +158,42 @@ const Checkout: FunctionComponent = () => {
               </div>
             </div>
           </div>
-          <div className="my-0 mx-[!important] absolute top-[442px] left-[-9.77px] flex flex-row items-center justify-center pt-0 px-2 pb-4 gap-[8px] z-[3] text-base text-text-text-tertiary">
+          <div className="w-[344px] animate-bounce absolute top-[442px] left-[-9.77px] flex flex-row items-center justify-center pt-0 px-2 pb-4 gap-[8px] z-[3] text-base text-text-text-tertiary">
             <img className="relative w-6 h-6" alt="" src="/arrowup-sm1.svg" />
-            <b className="relative leading-[135%]">
-              Anda dapat berinteraksi pada tampilan ini
-            </b>
+            <b className="">Anda dapat berinteraksi pada tampilan ini</b>
           </div>
+          <Modal
+            open={isModalOpen}
+            footer={[]}
+            width={
+              !isCheckoutApprove.approve && !isCheckoutApprove.interest
+                ? 800
+                : isCheckoutApprove.approve
+                ? 570
+                : isCheckoutApprove.interest
+                ? 370
+                : ""
+            }
+            onCancel={handleCancel}
+          >
+            {checkoutLoading && (
+              <div className="flex flex-col items-center z-10 absolute top-[40%] left-[30%]">
+                <img src="./Group 22341.png" alt="" className="animate-spin" />
+                <h4 className="text-[#718C9E]">
+                  Mohon menunggu. Transkasi Anda sedang diproses
+                </h4>
+              </div>
+            )}
+            {!isCheckoutApprove.approve && !isCheckoutApprove.interest ? (
+              <PaymentModal />
+            ) : isCheckoutApprove.approve ? (
+              <ModalsApprovement />
+            ) : isCheckoutApprove.interest ? (
+              <ModalInterest handleCancel={handleCancel} />
+            ) : (
+              ""
+            )}
+          </Modal>
         </div>
       </div>
     </div>
