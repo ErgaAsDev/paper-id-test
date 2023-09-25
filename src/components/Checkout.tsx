@@ -177,9 +177,9 @@ const Checkout: FunctionComponent = () => {
             onCancel={handleCancel}
           >
             {checkoutLoading && (
-              <div className="flex flex-col items-center z-10 absolute top-[40%] left-[30%]">
+              <div className="flex flex-col items-center z-10 absolute top-[45%] left-[30%] sm:left-[15%]">
                 <img src="./Group 22341.png" alt="" className="animate-spin" />
-                <h4 className="text-[#718C9E]">
+                <h4 className="text-[#718C9E] text-bold">
                   Mohon menunggu. Transkasi Anda sedang diproses
                 </h4>
               </div>

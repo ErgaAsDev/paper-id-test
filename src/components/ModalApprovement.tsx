@@ -7,8 +7,8 @@ const ModalsApprovement: FunctionComponent = () => {
   const { selectedOption } = useSelector((state: RootState) => state.app);
   const dispatch = useDispatch();
   return (
-    <div className="rounded-3xs [background:linear-gradient(132.62deg,_#1e79b7,_#004575)] w-[525px] flex flex-col items-center justify-center pt-4 px-6 pb-6 box-border gap-[24px] text-center text-lg text-white100 font-button-normal">
-      <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
+    <div className="rounded-3xs [background:linear-gradient(132.62deg,_#1e79b7,_#004575)] flex flex-col items-center justify-center pt-4 px-6 pb-6 box-border gap-[24px] text-center text-lg text-white100 font-button-normal">
+      <div className="self-stretch flex flex-col items-center justify-center gap-[8px]">
         <div className="self-stretch flex flex-col items-center justify-start gap-[12px]">
           <div className="self-stretch flex flex-col items-center justify-center gap-[4px]">
             <b className="self-stretch relative leading-[150%]">
@@ -68,7 +68,7 @@ const ModalsApprovement: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className="w-[468px] flex flex-col items-center justify-center pt-6 px-0 pb-0 box-border">
+        <div className=" flex items-center justify-center pt-6 px-0 pb-0 box-border">
           <button
             onClick={() => dispatch(setCheckoutConfirmation("interest"))}
             className="cursor-pointer [border:none] py-3 px-5 bg-green50 rounded-81xl flex flex-row items-center justify-center"
