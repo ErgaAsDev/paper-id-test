@@ -31,7 +31,7 @@ const RegistrationFormTwo: FunctionComponent = () => {
   const isFormValid = Object.values(formValues).every((value) => !!value);
 
   return (
-    <div className="flex  flex-row items-start justify-start text-left text-xs text-text-text-primary">
+    <div className="flex flex-row items-start justify-start text-left text-xs text-text-text-primary">
       <div className="rounded-3xs px-4 [background:linear-gradient(110.88deg,_rgba(255,_255,_255,_0.62),_rgba(255,_255,_255,_0))] [backdrop-filter:blur(24px)] flex flex-col items-start justify-start p-4">
         <div className="self-stretch rounded-3xs bg-white100 flex flex-col items-center justify-start py-[30px] px-8 relative gap-[18px]">
           <div className="self-stretch flex flex-row flex-wrap items-center justify-start z-[0] text-sm text-gainsboro">

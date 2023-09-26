@@ -14,7 +14,7 @@ const RegistrationFormOne: FunctionComponent = () => {
     }, 400); // Adjust the delay as needed
   };
   return (
-    <div className="w-[572px] sm:w-[400px] flex flex-row items-start justify-center py-0 px-2 box-border text-left text-base text-text-text-primary font-heading-heading-large">
+    <div className="w-[572px] z-10 sm:w-[400px] flex flex-row items-start justify-center py-0 px-2 box-border text-left text-base text-text-text-primary font-heading-heading-large">
       <div className="flex-1 rounded-3xs [background:linear-gradient(110.88deg,_rgba(255,_255,_255,_0.62),_rgba(255,_255,_255,_0))] [backdrop-filter:blur(24px)] flex flex-col items-center justify-start p-4 relative gap-[8px]">
         <div className="self-stretch rounded-3xs bg-white100 flex flex-col items-center justify-start py-[30px] px-6 relative gap-[24px] z-[0]">
           <div className="self-stretch flex flex-col items-center justify-center z-[0] text-center text-lg">

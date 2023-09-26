@@ -32,7 +32,7 @@ const Simulator: FunctionComponent = () => {
         <RegistrationFormOne />
       ) : isFormOpen.two ? (
         <div
-          className={`transition-opacity duration-300 ${
+          className={`transition-opacity duration-300 z-10 ${
             isOpacityTransition ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -42,7 +42,7 @@ const Simulator: FunctionComponent = () => {
         <RegistrationFormThree />
       ) : isFormOpen.four ? (
         <div
-          className={`transition-opacity duration-300 ${
+          className={`transition-opacity duration-300 z-10 ${
             isOpacityTransition ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -53,6 +53,11 @@ const Simulator: FunctionComponent = () => {
       ) : (
         ""
       )}
+      <img
+        className="absolute my-0 mx-[!important] top-[120px] lg:top-[450px] sm:top-[600px] right-[-3vw] w-[952px] sm:w-[400px] h-[840px] sm:h-[320px] z-[0]"
+        alt=""
+        src="/decor.svg"
+      />
     </div>
   );
 };

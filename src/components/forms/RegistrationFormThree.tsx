@@ -13,7 +13,7 @@ const RegistrationFormThree: FunctionComponent = () => {
     }, 300); // Adjust the delay as needed
   };
   return (
-    <div className="flex flex-row items-start justify-start text-left text-xs text-text-text-primary font-caption-2">
+    <div className="flex z-10 flex-row items-start justify-start text-left text-xs text-text-text-primary font-caption-2">
       <div className="flex-1 rounded-3xs [background:linear-gradient(110.88deg,_rgba(255,_255,_255,_0.62),_rgba(255,_255,_255,_0))] [backdrop-filter:blur(24px)] flex flex-col items-start justify-start p-4">
         <div className="self-stretch rounded-3xs bg-white100 flex flex-col items-center justify-start py-[30px] px-6 relative gap-[18px]">
           <div className="self-stretch flex flex-row items-center justify-start z-[0] text-sm text-gainsboro">
